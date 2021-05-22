@@ -34,19 +34,19 @@ const ContextProvider = ({ children }) => {
       });
 
     socket.on("me", (id) => {
-      console.log("my id ->", id);
+      // console.log("my id ->", id);
       setMe(id);
     });
 
     socket.on("callUser", ({ from, name: callerName, signal }) => {
-      console.log("calling a user useEffect ->", from);
+      // console.log("calling a user useEffect ->", from);
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
   }, []);
 
   // calling a user
   const callUser = (id) => {
-    console.log("calling a user after button triggered", id);
+    // console.log("calling a user after button triggered", id);
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on("signal", (data) => {
